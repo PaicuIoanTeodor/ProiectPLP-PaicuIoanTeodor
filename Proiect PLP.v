@@ -149,5 +149,13 @@ Proof. simpl. reflexivity. Qed.
   end
   in merge_aux l2. *)
 
-
+Definition Matrix (m n : nat) := nat -> nat -> C.
+Definition V0 : Vector  := 
+  fun x y => match x, y with 
+          | 0, 0 => C1
+          | 1, 0 => C0
+          | _, _ => C0
+          end.
+          Definition I (n : nat) : Matrix n n := 
+  (fun x y => if (x =? y) && (x <? n) then C1 else C0).
 (* rewrite la swap *)
