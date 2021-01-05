@@ -150,11 +150,13 @@ Proof. simpl. reflexivity. Qed.
   in merge_aux l2. *)
 
 Definition Matrix (m n : nat) := nat -> nat -> C.
-Definition V0 : Vector  := 
-  fun x y => match x, y with 
-          | 0, 0 => C1
-          | 1, 0 => C0
-          | _, _ => C0
+Definition test : Matrix 2 2 :=
+  fun x y => match x, y with
+          | 0, 0 => 0
+          | 0, 1 => 1
+          | 1, 0 => 2
+          | 1, 1 => 3
+          | _, _ => 0
           end.
           Definition I (n : nat) : Matrix n n := 
   (fun x y => if (x =? y) && (x <? n) then C1 else C0).
